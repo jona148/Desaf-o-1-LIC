@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Bank - ATM</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Pantalla de inicio de sesión -->
+        <div id="login-screen" class="screen active">
+            <h2>Bienvenido a Pokémon Bank</h2>
+            <p>Por favor, ingrese su PIN (4 dígitos)</p>
+            <input type="password" id="pin-input" maxlength="4" class="input-pin" placeholder="****">
+            <button onclick="login()" class="btn">Ingresar</button>
+        </div>
+
+        <!-- Pantalla de acciones -->
+        <div id="action-screen" class="screen">
+            <h2 id="account-info">Cuenta de Entrenador</h2>
+            <button onclick="makeTransaction('deposit')" class="btn">Depósito</button>
+            <button onclick="makeTransaction('withdraw')" class="btn">Retiro</button>
+            <button onclick="checkBalance()" class="btn">Consultar Saldo</button>
+            <button onclick="payServices()" class="btn">Pago de Servicios</button>
+            <button onclick="viewHistory()" class="btn">Ver Historial</button>
+            <button onclick="viewGraph()" class="btn">Ver Gráfica</button>
+            <button onclick="logout()" class="btn-logout">Salir</button>
+        </div>
+
+        <!-- Pantalla de historial -->
+        <div id="history-screen" class="screen">
+            <h2>Historial de Transacciones</h2>
+            <ul id="transaction-history"></ul>
+            <button onclick="goBack()" class="btn-back">Regresar</button>
+        </div>
+
+        <!-- Pantalla de gráfica -->
+        <div id="graph-screen" class="screen">
+            <h2>Análisis de Transacciones</h2>
+            <canvas id="transactionChart"></canvas>
+            <button onclick="goBack()" class="btn-back">Regresar</button>
+        </div>
+    </div>
+
+    <!-- Carga de Chart.js desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
